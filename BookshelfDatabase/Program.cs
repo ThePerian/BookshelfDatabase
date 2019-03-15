@@ -13,7 +13,7 @@ namespace DataProviderFactory
             WriteLine("*** Example of Data Provider Factory ***\n");
             //Получить строку подключения и поставщика из app.config
             string dataProvider = ConfigurationManager.AppSettings["provider"];
-            string connectionString = ConfigurationManager.AppSettings["connectionString"];
+            string connectionString = ConfigurationManager.ConnectionStrings["BookshelfSqlProvider"].ConnectionString;
 
             //Получить фабрику поставщиков
             DbProviderFactory factory = DbProviderFactories.GetFactory(dataProvider);
