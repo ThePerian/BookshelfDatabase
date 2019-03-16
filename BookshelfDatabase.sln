@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProviderFactory", "BookshelfDatabase\DataProviderFactory.csproj", "{88380614-47FD-460B-8BD1-C5FC5B288D0F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookshelfDataReader", "BookshelfDataReader\BookshelfDataReader.csproj", "{F919FFF4-2FA9-4FF1-86DB-985CC6EDB154}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProviderFactory", "DataProviderFactory\DataProviderFactory.csproj", "{88380614-47FD-460B-8BD1-C5FC5B288D0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F919FFF4-2FA9-4FF1-86DB-985CC6EDB154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F919FFF4-2FA9-4FF1-86DB-985CC6EDB154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F919FFF4-2FA9-4FF1-86DB-985CC6EDB154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F919FFF4-2FA9-4FF1-86DB-985CC6EDB154}.Release|Any CPU.Build.0 = Release|Any CPU
 		{88380614-47FD-460B-8BD1-C5FC5B288D0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{88380614-47FD-460B-8BD1-C5FC5B288D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88380614-47FD-460B-8BD1-C5FC5B288D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
