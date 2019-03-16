@@ -11,11 +11,19 @@ namespace BookshelfDataReader
         {
             WriteLine("*** Чтение данных из базы ***\n");
 
+            //Создание строки подключения
+            var connectionStringBuilder = new SqlConnectionStringBuilder
+            {
+                InitialCatalog = "Bookshelf",
+                DataSource = @"(local)\SQLEXPRESS",
+                ConnectTimeout = 30,
+                IntegratedSecurity = true
+            };
+
             //Создать и открыть подключение
             using (SqlConnection connection = new SqlConnection())
             {
-                connection.ConnectionString =
-                    @"Data Source=(local)\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=Bookshelf";
+                connection.ConnectionString = connectionStringBuilder.ConnectionString;
                 connection.Open();
                 ShowConnectionStatus(connection);
 
