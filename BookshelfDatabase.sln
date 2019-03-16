@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookshelfDatabase", "BookshelfDatabase\BookshelfDatabase.csproj", "{88380614-47FD-460B-8BD1-C5FC5B288D0F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProviderFactory", "BookshelfDatabase\DataProviderFactory.csproj", "{88380614-47FD-460B-8BD1-C5FC5B288D0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
