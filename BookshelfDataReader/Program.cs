@@ -9,7 +9,7 @@ namespace BookshelfDataReader
     {
         static void Main(string[] args)
         {
-            WriteLine("*** Using Data Readers ***\n");
+            WriteLine("*** Чтение данных из базы ***\n");
 
             //Создать и открыть подключение
             using (SqlConnection connection = new SqlConnection())
@@ -17,6 +17,7 @@ namespace BookshelfDataReader
                 connection.ConnectionString =
                     @"Data Source=(local)\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=Bookshelf";
                 connection.Open();
+                ShowConnectionStatus(connection);
 
                 //Создать объект команды SQL
                 string sqlString = "Select * From Inventory";
@@ -33,6 +34,14 @@ namespace BookshelfDataReader
                 }
             }
             ReadLine();
+        }
+
+        static void ShowConnectionStatus(SqlConnection connection)
+        {
+            WriteLine("*** Информация о текущем объекте подключения ***");
+            WriteLine($"Местоположение базы данных: {connection.DataSource}");
+            WriteLine($"Имя базы данных: {connection.Database}");
+            WriteLine($"Состояние подключения: {connection.State}\n");
         }
     }
 }
