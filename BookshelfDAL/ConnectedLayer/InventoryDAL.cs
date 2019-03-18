@@ -25,10 +25,30 @@ namespace BookshelfDAL.ConnectedLayer
         {
             //Сформировать строку запроса
             string sqlString = "Insert Into Inventory" +
-                $"(Author, Name, Read) Values ('{author}', '{name}', '{read}')";
+                "(Author, Name, Read)" +
+                "Values (@Author, @Name, @Read)";
             //Выполнить запрос
-            using (SqlCommand command = new SqlCommand(sqlString))
+            using (SqlCommand command = new SqlCommand(sqlString, _sqlConnection))
+            {
+                //Заполнить коллекцию параметров
+                SqlParameter parameter = new SqlParameter
+                {
+                    ParameterName = "@Author",
+                    Value = author,
+                    SqlDbType = SqlDbType.Char,
+                    Size = 50
+                };
+                command.Parameters.Add(parameter);
+
+                command.Parameters.Add("@Name", SqlDbType.Char, 50);
+                command.Parameters.AddWithValue("@Name", name);
+
+                parameter = new SqlParameter("@Read", SqlDbType.Bit, 1);
+                parameter.Value = read;
+                command.Parameters.Add(parameter);
+
                 command.ExecuteNonQuery();
+            }
         }
 
         public void InsertBook(NewBook book)
@@ -38,7 +58,7 @@ namespace BookshelfDAL.ConnectedLayer
                 "(Author, Name, Read) Values" +
                 $"('{book.Author}', '{book.Name}', '{book.Read}')";
             //Выполнить запрос
-            using (SqlCommand command = new SqlCommand(sqlString))
+            using (SqlCommand command = new SqlCommand(sqlString, _sqlConnection))
                 command.ExecuteNonQuery();
         }
 
