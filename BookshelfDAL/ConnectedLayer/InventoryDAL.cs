@@ -130,5 +130,42 @@ namespace BookshelfDAL.ConnectedLayer
 
             return inventory;
         }
+
+        public string LookUpBookName(int bookId)
+        {
+            string bookName;
+
+            //Установить имя хранимой процедуры
+            using (SqlCommand command = new SqlCommand("GetName", _sqlConnection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                //Входной параметр
+                SqlParameter parameter = new SqlParameter
+                {
+                    ParameterName = "@bookId",
+                    SqlDbType = SqlDbType.Int,
+                    Value = bookId,
+                    Direction = ParameterDirection.Input
+                };
+                command.Parameters.Add(parameter);
+                //Выходной параметр
+                parameter = new SqlParameter
+                {
+                    ParameterName = "@name",
+                    SqlDbType = SqlDbType.Char,
+                    Size = 50,
+                    Direction = ParameterDirection.Output
+                };
+                command.Parameters.Add(parameter);
+
+                //Выполнить хранимую процедуру
+                command.ExecuteNonQuery();
+
+                //Возвратить выходной параметр
+                bookName = (string)command.Parameters["@name"].Value;
+            }
+
+            return bookName;
+        }
     }
 }
