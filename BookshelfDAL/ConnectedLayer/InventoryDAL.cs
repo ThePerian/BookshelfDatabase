@@ -40,23 +40,5 @@ namespace BookshelfDAL.ConnectedLayer
             using (SqlCommand command = new SqlCommand(sqlString))
                 command.ExecuteNonQuery();
         }
-
-        public void DeleteBook(int id)
-        {
-            string sqlString = $"Delete from Inventory where BookId = '{id}'";
-            using (SqlCommand command = new SqlCommand(sqlString, _sqlConnection))
-            {
-                try
-                {
-                    command.ExecuteNonQuery();
-                }
-                catch(SqlException ex)
-                {
-                    //Нельзя удалить книгу, которая уже заказана
-                    Exception error = new Exception("That book is already ordered!", ex);
-                    throw error;
-                }
-            }
-        }
     }
 }
