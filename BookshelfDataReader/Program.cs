@@ -36,8 +36,8 @@ namespace BookshelfDataReader
                 {
                     while (dataReader.Read())
                     {
-                        WriteLine($"->Автор: {dataReader["Author"]}, Название: {dataReader["Name"]}, Прочитано:" +
-                            ((bool)dataReader["Read"] ? "Да" : "Нет"));
+                        WriteLine($"->Автор: {dataReader["Author"]}, Название: {dataReader["BookName"]}, Прочитано:" +
+                            ((bool)dataReader["ReadStatus"] ? "Да" : "Нет"));
                     }
                 }
             }

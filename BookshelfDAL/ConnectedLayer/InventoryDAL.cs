@@ -25,8 +25,8 @@ namespace BookshelfDAL.ConnectedLayer
         {
             //Сформировать строку запроса
             string sqlString = "Insert Into Inventory" +
-                "(Author, Name, Read)" +
-                "Values (@Author, @Name, @Read)";
+                "(Author, BookName, ReadStatus)" +
+                "Values (@Author, @BookName, @ReadStatus)";
             //Выполнить запрос
             using (SqlCommand command = new SqlCommand(sqlString, _sqlConnection))
             {
@@ -40,11 +40,17 @@ namespace BookshelfDAL.ConnectedLayer
                 };
                 command.Parameters.Add(parameter);
 
-                command.Parameters.Add("@Name", SqlDbType.Char, 50);
-                command.Parameters.AddWithValue("@Name", name);
+                parameter = new SqlParameter
+                {
+                    ParameterName = "@BookName",
+                    Value = name,
+                    SqlDbType = SqlDbType.Char,
+                    Size = 50
+                };
+                command.Parameters.Add(parameter);
 
-                parameter = new SqlParameter("@Read", SqlDbType.Bit, 1);
-                parameter.Value = read;
+                parameter = new SqlParameter("@ReadStatus", SqlDbType.Bit, 1);
+                parameter.Value = read?1:0;
                 command.Parameters.Add(parameter);
 
                 command.ExecuteNonQuery();
@@ -55,8 +61,8 @@ namespace BookshelfDAL.ConnectedLayer
         {
             //Сформировать строку запроса
             string sqlString = "Insert Into Inventory" +
-                "(Author, Name, Read) Values" +
-                $"('{book.Author}', '{book.Name}', '{book.Read}')";
+                "(Author, BookName, ReadStatus) Values" +
+                $"('{book.Author}', '{book.BookName}', '{book.ReadStatus}')";
             //Выполнить запрос
             using (SqlCommand command = new SqlCommand(sqlString, _sqlConnection))
                 command.ExecuteNonQuery();
@@ -82,7 +88,7 @@ namespace BookshelfDAL.ConnectedLayer
 
         public void UpdateBookReadStatus(int id, bool read)
         {
-            string sqlString = $"Update Inventory Set Read = '{read}' Where BookId = '{id}'";
+            string sqlString = $"Update Inventory Set ReadStatus = '{(read?1:0)}' Where BookId = '{id}'";
             using (SqlCommand command = new SqlCommand(sqlString, _sqlConnection))
                 command.ExecuteNonQuery();
         }
@@ -103,9 +109,9 @@ namespace BookshelfDAL.ConnectedLayer
                     inventory.Add(new NewBook
                     {
                         BookId = (int)dataReader["BookId"],
-                        Name = (string)dataReader["Name"],
+                        BookName = (string)dataReader["BookName"],
                         Author = (string)dataReader["Author"],
-                        Read = (bool)dataReader["Read"]
+                        ReadStatus = (bool)dataReader["ReadStatus"]
                     });
                 }
                 dataReader.Close();
@@ -151,7 +157,7 @@ namespace BookshelfDAL.ConnectedLayer
                 //Выходной параметр
                 parameter = new SqlParameter
                 {
-                    ParameterName = "@name",
+                    ParameterName = "@bookName",
                     SqlDbType = SqlDbType.Char,
                     Size = 50,
                     Direction = ParameterDirection.Output
@@ -162,7 +168,7 @@ namespace BookshelfDAL.ConnectedLayer
                 command.ExecuteNonQuery();
 
                 //Возвратить выходной параметр
-                bookName = (string)command.Parameters["@name"].Value;
+                bookName = (string)command.Parameters["@bookName"].Value;
             }
 
             return bookName;

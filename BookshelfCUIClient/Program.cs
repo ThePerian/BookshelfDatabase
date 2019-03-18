@@ -14,7 +14,7 @@ namespace BookshelfCUIClient
             WriteLine("*** The Bookshelf Console UI ***\n");
             //Получить строку подключения из файла App.config
             string connectionString =
-                ConfigurationManager.ConnectionStrings["BookshelfProvider"].ConnectionString;
+                ConfigurationManager.ConnectionStrings["BookshelfSqlProvider"].ConnectionString;
             bool userDone = false;
             string userCommand = "";
             //Создать объект BookshelfDAL
@@ -62,6 +62,7 @@ namespace BookshelfCUIClient
             catch (Exception ex)
             {
                 WriteLine(ex.Message);
+                ReadLine();
             }
             finally
             {
@@ -72,11 +73,11 @@ namespace BookshelfCUIClient
         private static void ShowInstructions()
         {
             WriteLine("I: Добавить новую книгу.\n"
-                + "U: Изменить существующую книгу.\n"
+                + "U: Отметить книгу как прочитанную.\n"
                 + "D: Удалить существующую книгу.\n"
                 + "L: Вывести список всех книг.\n"
                 + "H or ?: Вывести эту информацию.\n"
-                + "N: Найти книгу по названию.\n"
+                + "N: Вывести название книги.\n"
                 + "Q: Выход из программы.\n");
         }
 
@@ -125,9 +126,9 @@ namespace BookshelfCUIClient
             //Получить данные о новой книге
             int newBookId = GetBookId();
             Write("Введите название: ");
-            var newBookName = ReadLine();
+            var newBookName = ReadLine().TrimEnd();
             Write("Введите имя автора: ");
-            var newBookAuthor = ReadLine();
+            var newBookAuthor = ReadLine().TrimEnd();
             bool newBookRead = GetBookReadStatus();
             //Передать информацию библиотеке доступа к данным
             inventoryDAL.InsertBook(newBookId, newBookName, newBookAuthor, newBookRead);
