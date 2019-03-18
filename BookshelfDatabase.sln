@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookshelfDataReader", "Book
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProviderFactory", "DataProviderFactory\DataProviderFactory.csproj", "{88380614-47FD-460B-8BD1-C5FC5B288D0F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookshelfDAL", "BookshelfDAL\BookshelfDAL.csproj", "{C789371A-E5B7-4588-946D-4869FE7AA933}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{88380614-47FD-460B-8BD1-C5FC5B288D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88380614-47FD-460B-8BD1-C5FC5B288D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88380614-47FD-460B-8BD1-C5FC5B288D0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C789371A-E5B7-4588-946D-4869FE7AA933}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C789371A-E5B7-4588-946D-4869FE7AA933}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C789371A-E5B7-4588-946D-4869FE7AA933}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C789371A-E5B7-4588-946D-4869FE7AA933}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
