@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 using BookshelfDAL.Titles;
+using static System.Console;
 
 namespace BookshelfDAL.ConnectedLayer
 {
@@ -172,6 +173,59 @@ namespace BookshelfDAL.ConnectedLayer
             }
 
             return bookName;
+        }
+
+        public void ProcessPurchase(bool throwEx, int bookId)
+        {
+            //Определить название книги и имя автора по идентификатору
+            string bookName;
+            string author;
+            var cmdSelect =
+                new SqlCommand($"Select * from Wishlist where BookId = {bookId}", _sqlConnection);
+            using (var dataReader = cmdSelect.ExecuteReader())
+            {
+                if (dataReader.HasRows)
+                {
+                    dataReader.Read();
+                    bookName = (string)dataReader["BookName"];
+                    author = (string)dataReader["Author"];
+                }
+                else
+                    return;
+            }
+
+            //Создать объекты комманд для каждого шага операции
+            var cmdRemove =
+                new SqlCommand($"Delete from Wishlist where BookId = {bookId}", _sqlConnection);
+
+            var cmdInsert =
+                new SqlCommand($"Insert into Inventory" +
+                $"(BookName, Author) Values('{bookName}', '{author}')", _sqlConnection);
+
+            SqlTransaction transaction = null;
+            try
+            {
+                transaction = _sqlConnection.BeginTransaction();
+                //Включить команды в транзакцию
+                cmdInsert.Transaction = transaction;
+                cmdRemove.Transaction = transaction;
+                //Выполнить команды
+                cmdInsert.ExecuteNonQuery();
+                cmdRemove.ExecuteNonQuery();
+                //Эмулировать ошибку
+                if (throwEx)
+                {
+                    throw new Exception("Ошибка базы данных! Транзакция не удалась!");
+                }
+                //Зафиксировать транзакцию
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                WriteLine(ex.Message);
+                //Любая ошибка приводит к откату транзакции
+                transaction?.Rollback();
+            }
         }
     }
 }

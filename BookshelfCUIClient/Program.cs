@@ -62,6 +62,7 @@ namespace BookshelfCUIClient
             catch (Exception ex)
             {
                 WriteLine(ex.Message);
+                WriteLine("Нажмите любую клавишу для завершения работы...");
                 ReadLine();
             }
             finally
