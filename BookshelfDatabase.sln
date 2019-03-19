@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookshelfDAL", "BookshelfDA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookshelfCUIClient", "BookshelfCUIClient\BookshelfCUIClient.csproj", "{8329917A-6AAD-4E4F-9275-D6F6D72D7E6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoNetTransaction", "AdoNetTransaction\AdoNetTransaction.csproj", "{B148E45F-9B77-4D84-8E33-31EA2582824A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{8329917A-6AAD-4E4F-9275-D6F6D72D7E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8329917A-6AAD-4E4F-9275-D6F6D72D7E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8329917A-6AAD-4E4F-9275-D6F6D72D7E6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B148E45F-9B77-4D84-8E33-31EA2582824A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B148E45F-9B77-4D84-8E33-31EA2582824A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B148E45F-9B77-4D84-8E33-31EA2582824A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B148E45F-9B77-4D84-8E33-31EA2582824A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

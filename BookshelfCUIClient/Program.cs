@@ -63,7 +63,7 @@ namespace BookshelfCUIClient
             {
                 WriteLine(ex.Message);
                 WriteLine("Нажмите любую клавишу для завершения работы...");
-                ReadLine();
+                ReadKey();
             }
             finally
             {
@@ -146,7 +146,8 @@ namespace BookshelfCUIClient
         private static void LookUpBookName(InventoryDAL inventoryDAL)
         {
             int bookId = GetBookId();
-            WriteLine($"Название книги с ID {bookId}: \"{inventoryDAL.LookUpBookName(bookId).TrimEnd()}\"");
+            WriteLine(
+                $"Название книги с ID {bookId}: \"{inventoryDAL.LookUpBookName(bookId).TrimEnd()}\"");
         }
 
         private static int GetBookId()

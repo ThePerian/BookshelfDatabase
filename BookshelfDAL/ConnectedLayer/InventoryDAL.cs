@@ -200,7 +200,8 @@ namespace BookshelfDAL.ConnectedLayer
 
             var cmdInsert =
                 new SqlCommand($"Insert into Inventory" +
-                $"(BookName, Author) Values('{bookName}', '{author}')", _sqlConnection);
+                $"(BookName, Author, ReadStatus) Values('{bookName}', '{author}', '0')",
+                _sqlConnection);
 
             SqlTransaction transaction = null;
             try
