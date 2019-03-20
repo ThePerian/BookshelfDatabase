@@ -73,5 +73,24 @@ namespace WinFormsDataBinding
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnDisplayAuthor_Click(object sender, EventArgs e)
+        {
+            //Построить фильтр на основе пользовательского ввода
+            string filter = $"Author Like '%{txtAuthorToView.Text}%'";
+            //Найти все строки, удовлетворяющие фильтру
+            DataRow[] authors = inventoryTable.Select(filter, "BookName ASC");
+            //Показать полученные результаты
+            if (authors.Length == 0)
+                MessageBox.Show("Авторов не найдено!", "Ошибка выборки");
+            else
+            {
+                string authorString = null;
+                for (int i = 0; i < authors.Length; i++)
+                    authorString += $"{authors[i]["BookName"]}\n";
+                //Вывести все результаты в окне сообщений
+                MessageBox.Show(authorString, $"Найдены книги автора {txtAuthorToView.Text}:");
+            }
+        }
     }
 }
