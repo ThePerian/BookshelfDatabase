@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookshelfCUIClient", "Books
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoNetTransaction", "AdoNetTransaction\AdoNetTransaction.csproj", "{B148E45F-9B77-4D84-8E33-31EA2582824A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleDataSet", "SimpleDataSet\SimpleDataSet.csproj", "{B2F61D9B-723D-4850-9AA6-845AAFDBB3F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B148E45F-9B77-4D84-8E33-31EA2582824A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B148E45F-9B77-4D84-8E33-31EA2582824A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B148E45F-9B77-4D84-8E33-31EA2582824A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2F61D9B-723D-4850-9AA6-845AAFDBB3F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2F61D9B-723D-4850-9AA6-845AAFDBB3F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2F61D9B-723D-4850-9AA6-845AAFDBB3F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2F61D9B-723D-4850-9AA6-845AAFDBB3F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
