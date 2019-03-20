@@ -38,9 +38,12 @@
             this.txtAuthorToView = new System.Windows.Forms.TextBox();
             this.lblAuthorToView = new System.Windows.Forms.Label();
             this.btnChangeReads = new System.Windows.Forms.Button();
+            this.tolkienOnlyGridView = new System.Windows.Forms.DataGridView();
+            this.lblOnlyTolkien = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bookInventoryGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tolkienOnlyGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // bookInventoryGridView
@@ -48,7 +51,7 @@
             this.bookInventoryGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bookInventoryGridView.Location = new System.Drawing.Point(12, 12);
             this.bookInventoryGridView.Name = "bookInventoryGridView";
-            this.bookInventoryGridView.Size = new System.Drawing.Size(558, 283);
+            this.bookInventoryGridView.Size = new System.Drawing.Size(558, 166);
             this.bookInventoryGridView.TabIndex = 0;
             // 
             // lblRowToRemove
@@ -82,7 +85,7 @@
             this.panel1.Controls.Add(this.lblRowToRemove);
             this.panel1.Controls.Add(this.btnRemoveRow);
             this.panel1.Controls.Add(this.txtRowToRemove);
-            this.panel1.Location = new System.Drawing.Point(12, 301);
+            this.panel1.Location = new System.Drawing.Point(12, 184);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 66);
             this.panel1.TabIndex = 4;
@@ -92,7 +95,7 @@
             this.panel2.Controls.Add(this.btnDisplayAuthor);
             this.panel2.Controls.Add(this.txtAuthorToView);
             this.panel2.Controls.Add(this.lblAuthorToView);
-            this.panel2.Location = new System.Drawing.Point(218, 301);
+            this.panel2.Location = new System.Drawing.Point(218, 184);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 66);
             this.panel2.TabIndex = 5;
@@ -125,7 +128,7 @@
             // 
             // btnChangeReads
             // 
-            this.btnChangeReads.Location = new System.Drawing.Point(424, 314);
+            this.btnChangeReads.Location = new System.Drawing.Point(424, 197);
             this.btnChangeReads.Name = "btnChangeReads";
             this.btnChangeReads.Size = new System.Drawing.Size(146, 42);
             this.btnChangeReads.TabIndex = 6;
@@ -133,11 +136,30 @@
             this.btnChangeReads.UseVisualStyleBackColor = true;
             this.btnChangeReads.Click += new System.EventHandler(this.btnChangeReads_Click);
             // 
+            // tolkienOnlyGridView
+            // 
+            this.tolkienOnlyGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tolkienOnlyGridView.Location = new System.Drawing.Point(12, 283);
+            this.tolkienOnlyGridView.Name = "tolkienOnlyGridView";
+            this.tolkienOnlyGridView.Size = new System.Drawing.Size(558, 90);
+            this.tolkienOnlyGridView.TabIndex = 7;
+            // 
+            // lblOnlyTolkien
+            // 
+            this.lblOnlyTolkien.AutoSize = true;
+            this.lblOnlyTolkien.Location = new System.Drawing.Point(9, 267);
+            this.lblOnlyTolkien.Name = "lblOnlyTolkien";
+            this.lblOnlyTolkien.Size = new System.Drawing.Size(132, 13);
+            this.lblOnlyTolkien.TabIndex = 8;
+            this.lblOnlyTolkien.Text = "Книги Дж. Р. Р. Толкина";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 408);
+            this.Controls.Add(this.lblOnlyTolkien);
+            this.Controls.Add(this.tolkienOnlyGridView);
             this.Controls.Add(this.btnChangeReads);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -149,7 +171,9 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tolkienOnlyGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -165,6 +189,8 @@
         private System.Windows.Forms.TextBox txtAuthorToView;
         private System.Windows.Forms.Label lblAuthorToView;
         private System.Windows.Forms.Button btnChangeReads;
+        private System.Windows.Forms.DataGridView tolkienOnlyGridView;
+        private System.Windows.Forms.Label lblOnlyTolkien;
     }
 }
 

@@ -14,6 +14,7 @@ namespace WinFormsDataBinding
     {
         List<Book> listBooks = null;
         DataTable inventoryTable = new DataTable();
+        DataView tolkienOnlyView;
 
         public MainForm()
         {
@@ -27,6 +28,7 @@ namespace WinFormsDataBinding
                     Author = "Роджер Желязны", ReadStatus = false},
             };
             CreateDataTable();
+            CreateDataView();
         }
 
         void CreateDataTable()
@@ -106,6 +108,16 @@ namespace WinFormsDataBinding
             //Отметить книги как прочитанные
             for (int i = 0; i < authors.Length; i++)
                 authors[i]["ReadStatus"] = true;
+        }
+
+        private void CreateDataView()
+        {
+            //Установить таблицу, которая используется для создания этого представления
+            tolkienOnlyView = new DataView(inventoryTable);
+            //Сконфигурировать представление с применением фильтра
+            tolkienOnlyView.RowFilter = "Author = 'Джон Толкин'";
+            //Привязать к новому элементу DataGridView
+            tolkienOnlyGridView.DataSource = tolkienOnlyView;
         }
     }
 }
