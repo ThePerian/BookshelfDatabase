@@ -92,5 +92,20 @@ namespace WinFormsDataBinding
                 MessageBox.Show(authorString, $"Найдены книги автора {txtAuthorToView.Text}:");
             }
         }
+
+        private void btnChangeReads_Click(object sender, EventArgs e)
+        {
+            //Убедиться, что пользователь уверен в своих действиях
+            if (MessageBox.Show("Вы уверены?", "Подтверждение", MessageBoxButtons.YesNo)
+                != DialogResult.Yes)
+                return;
+            //Построить фильтр
+            string filter = "";
+            //Найти все строки, соответствующие фильтру
+            DataRow[] authors = inventoryTable.Select(filter);
+            //Отметить книги как прочитанные
+            for (int i = 0; i < authors.Length; i++)
+                authors[i]["ReadStatus"] = true;
+        }
     }
 }

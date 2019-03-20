@@ -37,6 +37,7 @@
             this.btnDisplayAuthor = new System.Windows.Forms.Button();
             this.txtAuthorToView = new System.Windows.Forms.TextBox();
             this.lblAuthorToView = new System.Windows.Forms.Label();
+            this.btnChangeReads = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bookInventoryGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -122,11 +123,22 @@
             this.lblAuthorToView.TabIndex = 0;
             this.lblAuthorToView.Text = "Поиск книг по имени автора";
             // 
+            // btnChangeReads
+            // 
+            this.btnChangeReads.Location = new System.Drawing.Point(424, 314);
+            this.btnChangeReads.Name = "btnChangeReads";
+            this.btnChangeReads.Size = new System.Drawing.Size(146, 42);
+            this.btnChangeReads.TabIndex = 6;
+            this.btnChangeReads.Text = "Отметить все как прочитанное";
+            this.btnChangeReads.UseVisualStyleBackColor = true;
+            this.btnChangeReads.Click += new System.EventHandler(this.btnChangeReads_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 408);
+            this.Controls.Add(this.btnChangeReads);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bookInventoryGridView);
@@ -152,6 +164,7 @@
         private System.Windows.Forms.Button btnDisplayAuthor;
         private System.Windows.Forms.TextBox txtAuthorToView;
         private System.Windows.Forms.Label lblAuthorToView;
+        private System.Windows.Forms.Button btnChangeReads;
     }
 }
 
