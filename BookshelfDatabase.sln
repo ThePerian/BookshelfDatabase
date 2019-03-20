@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoNetTransaction", "AdoNet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleDataSet", "SimpleDataSet\SimpleDataSet.csproj", "{B2F61D9B-723D-4850-9AA6-845AAFDBB3F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsDataBinding", "WinFormsDataBinding\WinFormsDataBinding.csproj", "{D6B0D400-FD0F-4B7A-A4CA-EDBBA56F7434}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{B2F61D9B-723D-4850-9AA6-845AAFDBB3F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2F61D9B-723D-4850-9AA6-845AAFDBB3F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2F61D9B-723D-4850-9AA6-845AAFDBB3F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6B0D400-FD0F-4B7A-A4CA-EDBBA56F7434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6B0D400-FD0F-4B7A-A4CA-EDBBA56F7434}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6B0D400-FD0F-4B7A-A4CA-EDBBA56F7434}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6B0D400-FD0F-4B7A-A4CA-EDBBA56F7434}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
