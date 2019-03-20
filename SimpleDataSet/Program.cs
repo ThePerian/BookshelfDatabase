@@ -82,14 +82,21 @@ namespace SimpleDataSet
                 for (int curCol = 0; curCol < table.Columns.Count; curCol++)
                     Write($"{table.Columns[curCol].ColumnName}\t");
                 WriteLine("\n--------------------------------------------------");
-                for (int curRow = 0; curRow < table.Rows.Count; curRow++)
-                {
-                    for (int curCol = 0; curCol < table.Columns.Count; curCol++)
-                        Write($"{table.Rows[curRow][curCol]}\t");
-                    WriteLine();
-                }
+
+                PrintTable(table);
             }
         }
 
+        static void PrintTable(DataTable dataTable)
+        {
+            DataTableReader dataTableReader = dataTable.CreateDataReader();
+            while(dataTableReader.Read())
+            {
+                for (int i = 0; i < dataTableReader.FieldCount; i++)
+                    Write($"{dataTableReader.GetValue(i).ToString().Trim()}\t");
+                WriteLine();
+            }
+            dataTableReader.Close();
+        }
     }
 }
