@@ -55,5 +55,23 @@ namespace WinFormsDataBinding
             //Привязать объект DataTable к bookInventoryGridView
             bookInventoryGridView.DataSource = inventoryTable;
         }
+
+        private void btnRemoveRow_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Найти корректную строку для удаления
+                DataRow[] rowToDelete =
+                    inventoryTable.Select($"Id={int.Parse(txtRowToRemove.Text)}");
+
+                //Удалить строку
+                rowToDelete[0].Delete();
+                inventoryTable.AcceptChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
