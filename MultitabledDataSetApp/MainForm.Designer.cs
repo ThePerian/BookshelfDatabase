@@ -35,9 +35,14 @@
             this.lblOrders = new System.Windows.Forms.Label();
             this.ordersGridView = new System.Windows.Forms.DataGridView();
             this.btnUpdateDatabase = new System.Windows.Forms.Button();
+            this.gbLookUpStoreOrder = new System.Windows.Forms.GroupBox();
+            this.lblStoreId = new System.Windows.Forms.Label();
+            this.txtStoreId = new System.Windows.Forms.TextBox();
+            this.btnGetOrderInfo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersGridView)).BeginInit();
+            this.gbLookUpStoreOrder.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblInventory
@@ -101,11 +106,50 @@
             this.btnUpdateDatabase.UseVisualStyleBackColor = true;
             this.btnUpdateDatabase.Click += new System.EventHandler(this.btnUpdateDatabase_Click);
             // 
+            // gbLookUpStoreOrder
+            // 
+            this.gbLookUpStoreOrder.Controls.Add(this.btnGetOrderInfo);
+            this.gbLookUpStoreOrder.Controls.Add(this.txtStoreId);
+            this.gbLookUpStoreOrder.Controls.Add(this.lblStoreId);
+            this.gbLookUpStoreOrder.Location = new System.Drawing.Point(12, 519);
+            this.gbLookUpStoreOrder.Name = "gbLookUpStoreOrder";
+            this.gbLookUpStoreOrder.Size = new System.Drawing.Size(169, 118);
+            this.gbLookUpStoreOrder.TabIndex = 7;
+            this.gbLookUpStoreOrder.TabStop = false;
+            this.gbLookUpStoreOrder.Text = "Поиск заказа в магазине";
+            // 
+            // lblStoreId
+            // 
+            this.lblStoreId.AutoSize = true;
+            this.lblStoreId.Location = new System.Drawing.Point(6, 31);
+            this.lblStoreId.Name = "lblStoreId";
+            this.lblStoreId.Size = new System.Drawing.Size(49, 13);
+            this.lblStoreId.TabIndex = 0;
+            this.lblStoreId.Text = "Store ID:";
+            // 
+            // txtStoreId
+            // 
+            this.txtStoreId.Location = new System.Drawing.Point(61, 28);
+            this.txtStoreId.Name = "txtStoreId";
+            this.txtStoreId.Size = new System.Drawing.Size(102, 20);
+            this.txtStoreId.TabIndex = 1;
+            // 
+            // btnGetOrderInfo
+            // 
+            this.btnGetOrderInfo.Location = new System.Drawing.Point(61, 54);
+            this.btnGetOrderInfo.Name = "btnGetOrderInfo";
+            this.btnGetOrderInfo.Size = new System.Drawing.Size(102, 58);
+            this.btnGetOrderInfo.TabIndex = 2;
+            this.btnGetOrderInfo.Text = "Получить информацию о заказе";
+            this.btnGetOrderInfo.UseVisualStyleBackColor = true;
+            this.btnGetOrderInfo.Click += new System.EventHandler(this.btnGetOrderInfo_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(563, 548);
+            this.ClientSize = new System.Drawing.Size(563, 646);
+            this.Controls.Add(this.gbLookUpStoreOrder);
             this.Controls.Add(this.btnUpdateDatabase);
             this.Controls.Add(this.ordersGridView);
             this.Controls.Add(this.lblOrders);
@@ -118,6 +162,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.inventoryGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storesGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersGridView)).EndInit();
+            this.gbLookUpStoreOrder.ResumeLayout(false);
+            this.gbLookUpStoreOrder.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,6 +178,10 @@
         private System.Windows.Forms.Label lblOrders;
         private System.Windows.Forms.DataGridView ordersGridView;
         private System.Windows.Forms.Button btnUpdateDatabase;
+        private System.Windows.Forms.GroupBox gbLookUpStoreOrder;
+        private System.Windows.Forms.Button btnGetOrderInfo;
+        private System.Windows.Forms.TextBox txtStoreId;
+        private System.Windows.Forms.Label lblStoreId;
     }
 }
 

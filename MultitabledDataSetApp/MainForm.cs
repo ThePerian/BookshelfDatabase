@@ -74,5 +74,38 @@ namespace MultitabledDataSetApp
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnGetOrderInfo_Click(object sender, EventArgs e)
+        {
+            string orderInfo = string.Empty;
+            //Получить идентификатор магазина
+            int storeId = int.Parse(txtStoreId.Text);
+
+            //На основе ID получить подходящую строку из таблицы Stores
+            var storeRows = _bookshelfDataSet.Tables["Stores"].Select($"StoreId = {storeId}");
+            orderInfo +=
+                $"Магазин {storeRows[0]["StoreId"]}: " +
+                $"{storeRows[0]["ShortName"].ToString().Trim()} " +
+                $"({storeRows[0]["URL"].ToString().Trim()})\n";
+
+            //Перейти из таблицы Stores в таблицу Orders
+            var orderRows = storeRows[0].GetChildRows(_bookshelfDataSet.Relations["StoreOrder"]);
+
+            //Пройти по всем заказам в данном магазине
+            foreach(DataRow order in orderRows)
+            {
+                orderInfo += $"----\nНомер заказа: {order["OrderID"]}\n";
+
+                //Получить книгу, на которую ссылается этот заказ
+                DataRow[] inventoryRows =
+                    order.GetParentRows(_bookshelfDataSet.Relations["InventoryOrder"]);
+
+                //Получить информацию для книги из этого заказа
+                DataRow book = inventoryRows[0];
+                orderInfo += $"Автор: {book["Author"]}\n";
+                orderInfo += $"Название: {book["BookName"]}\n";
+            }
+            MessageBox.Show(orderInfo, "Детали заказа");
+        }
     }
 }
