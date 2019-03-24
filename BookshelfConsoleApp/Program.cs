@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using BookshelfConsoleApp.EF;
 using static System.Console;
 
@@ -21,6 +22,9 @@ namespace BookshelfConsoleApp
             RemoveRecord(bookId);
             WriteLine($"Удалена запись {bookId}");
             PrintAllInventory();
+
+            WriteLine("Все книги Дж. Р. Р. Мартина:");
+            PrintAllMartin();
 
             ReadKey();
         }
@@ -71,7 +75,27 @@ namespace BookshelfConsoleApp
         {
             using (var context = new BookshelfEntities())
             {
-                foreach(Book item in context.Inventory)
+                //Получить все данные из таблицы Inventory
+                var allData = context.Inventory.ToArray();
+
+                //Получить проекцию новых данных
+                var bookAuthors = from item in allData select new { item.BookName, item.Author };
+                foreach (var item in bookAuthors)
+                    WriteLine(item);
+            }
+        }
+
+        private static void PrintAllMartin()
+        {
+            using (var context = new BookshelfEntities())
+            {
+                //Получить все данные из таблицы Inventory
+                var allData = context.Inventory.ToArray();
+
+                //Получить проекцию новых данных
+                var bookMartin = 
+                    from item in allData where item.Author == "Дж. Р. Р. Мартин" select item;
+                foreach (var item in bookMartin)
                     WriteLine(item);
             }
         }
