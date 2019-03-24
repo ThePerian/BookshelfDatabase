@@ -28,6 +28,10 @@ namespace BookshelfConsoleApp
             WriteLine("Все книги Дж. Р. Р. Мартина:");
             PrintAllMartin();
 
+            WriteLine("Введите ID книги, чтобы пометить ее как прочитанную (или наоборот): ");
+            bookId = int.Parse(ReadLine());
+            UpdateRecord(bookId);
+
             ReadKey();
         }
 
@@ -118,6 +122,22 @@ namespace BookshelfConsoleApp
                 catch (Exception ex)
                 {
                     WriteLine(ex.Message);
+                }
+            }
+        }
+
+        private static void UpdateRecord(int bookId)
+        {
+            //Найти книгу по ID и изменить ее ReadStatus
+            using (var context = new BookshelfEntities())
+            {
+                Book bookToUpdate = context.Inventory.Find(bookId);
+                if (bookToUpdate != null)
+                {
+                    WriteLine(context.Entry(bookToUpdate).State);
+                    bookToUpdate.ReadStatus = !bookToUpdate.ReadStatus;
+                    WriteLine(context.Entry(bookToUpdate).State);
+                    context.SaveChanges();
                 }
             }
         }
