@@ -2,6 +2,8 @@
 using System.Linq;
 using BookshelfConsoleApp.EF;
 using static System.Console;
+using System.Data;
+using System.Data.Entity;
 
 namespace BookshelfConsoleApp
 {
@@ -61,8 +63,11 @@ namespace BookshelfConsoleApp
                 try
                 {
                     var bookToRemove = context.Inventory.Find(bookId);
-                    context.Inventory.Remove(bookToRemove);
-                    context.SaveChanges();
+                    if (bookToRemove != null)
+                    {
+                        context.Inventory.Remove(bookToRemove);
+                        context.SaveChanges();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -97,6 +102,23 @@ namespace BookshelfConsoleApp
                     from item in allData where item.Author == "Дж. Р. Р. Мартин" select item;
                 foreach (var item in bookMartin)
                     WriteLine(item);
+            }
+        }
+
+        private static void RemoveRecordUsingEntityState(int bookId)
+        {
+            using (var context = new BookshelfEntities())
+            {
+                Book bookToRemove = new Book() { BookId = bookId };
+                context.Entry(bookToRemove).State = EntityState.Deleted;
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    WriteLine(ex.Message);
+                }
             }
         }
     }
