@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridViewDataDesigner", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StronglyTypedDataSetConsoleClient", "StronglyTypedDataSetConsoleClient\StronglyTypedDataSetConsoleClient.csproj", "{6B749A5F-DDAC-4412-AD39-6EACB0A769BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookshelfConsoleApp", "BookshelfConsoleApp\BookshelfConsoleApp.csproj", "{FD8066D2-0A30-40E6-ADC9-FA07704B62A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{6B749A5F-DDAC-4412-AD39-6EACB0A769BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B749A5F-DDAC-4412-AD39-6EACB0A769BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B749A5F-DDAC-4412-AD39-6EACB0A769BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD8066D2-0A30-40E6-ADC9-FA07704B62A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD8066D2-0A30-40E6-ADC9-FA07704B62A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD8066D2-0A30-40E6-ADC9-FA07704B62A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD8066D2-0A30-40E6-ADC9-FA07704B62A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
