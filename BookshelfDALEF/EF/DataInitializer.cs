@@ -5,7 +5,7 @@ using BookshelfDALEF.Models;
 
 namespace BookshelfDALEF.EF
 {
-    class DataInitializer : DropCreateDatabaseAlways<BookshelfEntities>
+    public class DataInitializer : DropCreateDatabaseAlways<BookshelfEntities>
     {
         //Инициализировать базу начальными данными
         protected override void Seed(BookshelfEntities context)

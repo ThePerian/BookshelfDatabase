@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookshelfConsoleApp", "Book
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookshelfDALEF", "BookshelfDALEF\BookshelfDALEF.csproj", "{A0A07271-ACF1-4240-864C-65E95F72ECCA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookshelfTestApp", "BookshelfTestApp\BookshelfTestApp.csproj", "{AAF55737-4E09-46DE-BE6A-B68231F36275}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{A0A07271-ACF1-4240-864C-65E95F72ECCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0A07271-ACF1-4240-864C-65E95F72ECCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0A07271-ACF1-4240-864C-65E95F72ECCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAF55737-4E09-46DE-BE6A-B68231F36275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAF55737-4E09-46DE-BE6A-B68231F36275}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAF55737-4E09-46DE-BE6A-B68231F36275}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAF55737-4E09-46DE-BE6A-B68231F36275}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

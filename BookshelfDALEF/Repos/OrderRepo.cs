@@ -5,7 +5,7 @@ using BookshelfDALEF.Models;
 
 namespace BookshelfDALEF.Repos
 {
-    class OrderRepo : BaseRepo<Order>, IRepo<Order>
+    public class OrderRepo : BaseRepo<Order>, IRepo<Order>
     {
         public OrderRepo()
         {

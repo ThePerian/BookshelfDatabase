@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace BookshelfDALEF.Repos
 {
-    public abstract class BaseRepo<T> where T:class, new()
+    public abstract class BaseRepo<T>: IDisposable where T:class, new()
     {
         public BookshelfEntities Context { get; } = new BookshelfEntities();
 
@@ -150,81 +150,8 @@ namespace BookshelfDALEF.Repos
             Context.Entry(entity).State = EntityState.Deleted;
             return SaveChangesAsync();
         }
-    }
 
-    public abstract class BaseRepo: IDisposable
-    {
-        protected BookshelfEntities Context { get; } = new BookshelfEntities();
-
-        //Сохранение изменений
-        internal int SaveChanges()
-        {
-            try
-            {
-                return Context.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                //Генерируется, когда возникла ошибка параллелизма
-                //пока что просто сгенерировать исключение повторно
-                throw;
-            }
-            catch (DbUpdateException ex)
-            {
-                //Генерируется, когда обновление базы данных терпит отказ
-                //Проверить внутреннее исключение, чтобы получить дополнительные
-                //сведения и затронутые объекты;
-                //пока что просто сгенерировать исключение повторно
-                throw;
-            }
-            catch (CommitFailedException ex)
-            {
-                //Обработать здесь ошибки, связанные с транзакцией
-                //пока что просто сгенерировать исключение повторно
-                throw;
-            }
-            catch (Exception ex)
-            {
-                //Были сгенерированы какие-то другие исключения,
-                //которые должны быть обработаны
-                throw;
-            }
-        }
-
-        internal async Task<int> SaveChangesAsync()
-        {
-            try
-            {
-                return await Context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                //Генерируется, когда возникла ошибка параллелизма
-                //пока что просто сгенерировать исключение повторно
-                throw;
-            }
-            catch (DbUpdateException ex)
-            {
-                //Генерируется, когда обновление базы данных терпит отказ
-                //Проверить внутреннее исключение, чтобы получить дополнительные
-                //сведения и затронутые объекты;
-                //пока что просто сгенерировать исключение повторно
-                throw;
-            }
-            catch (CommitFailedException ex)
-            {
-                //Обработать здесь ошибки, связанные с транзакцией
-                //пока что просто сгенерировать исключение повторно
-                throw;
-            }
-            catch (Exception ex)
-            {
-                //Были сгенерированы какие-то другие исключения,
-                //которые должны быть обработаны
-                throw;
-            }
-        }
-
+        //Реализация IDisposable
         bool disposed = false;
 
         public void Dispose()

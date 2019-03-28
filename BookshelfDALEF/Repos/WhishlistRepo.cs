@@ -5,7 +5,7 @@ using BookshelfDALEF.Models;
 
 namespace BookshelfDALEF.Repos
 {
-    class WishlistRepo : BaseRepo<Wishlist>, IRepo<Wishlist>
+    public class WishlistRepo : BaseRepo<Wishlist>, IRepo<Wishlist>
     {
         public WishlistRepo()
         {
