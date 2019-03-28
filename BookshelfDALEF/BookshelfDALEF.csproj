@@ -56,6 +56,10 @@
     <Compile Include="Migrations\201903281419565_InitialCreate.Designer.cs">
       <DependentUpon>201903281419565_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903281445241_Timestamps.cs" />
+    <Compile Include="Migrations\201903281445241_Timestamps.Designer.cs">
+      <DependentUpon>201903281445241_Timestamps.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\Order.cs" />
@@ -77,6 +81,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201903281419565_InitialCreate.resx">
       <DependentUpon>201903281419565_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903281445241_Timestamps.resx">
+      <DependentUpon>201903281445241_Timestamps.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
