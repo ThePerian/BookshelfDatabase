@@ -33,7 +33,7 @@ namespace BookshelfDALEF.EF
             {
                 new Order{ Book = books[0], Store = stores[0]},
                 new Order{ Book = books[1], Store = stores[1]},
-                new Order{ Book = books[2], Store = stores[3]},
+                new Order{ Book = books[2], Store = stores[2]},
             };
             orders.ForEach(x => context.Orders.Add(x));
 

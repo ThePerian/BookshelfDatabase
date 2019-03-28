@@ -20,6 +20,9 @@ namespace BookshelfDALEF.Models
         [Required]
         public bool ReadStatus { get; set; }
 
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
+
         public virtual ICollection<Order> Orders { get; set; } = new HashSet<Order>();
     }
 }

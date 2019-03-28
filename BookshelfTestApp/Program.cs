@@ -14,9 +14,9 @@ namespace BookshelfTestApp
     {
         static void Main(string[] args)
         {
-            Database.SetInitializer(new DataInitializer());
+            //Database.SetInitializer(new DataInitializer());
             WriteLine("*** Using ADO.NET EF Code First ***\n");
-
+            /*
             var book1 = new Inventory()
             {
                 Author = "Дж. Р. Р. Мартин",
@@ -50,7 +50,8 @@ namespace BookshelfTestApp
             wishlistRepo.Context.Entry(book).State = EntityState.Detached;
             var purchasedBook = PurchaseBook(book);
             PrintWholeInventoryAndWishlist();
-
+            */
+            PrintAllInventory();
             ReadKey();
         }
 

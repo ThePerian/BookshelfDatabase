@@ -19,6 +19,9 @@ namespace BookshelfDALEF.Models
         [NotMapped]
         public string FullInfo => $"{ShortName} + ({URL})";
 
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
+
         public virtual ICollection<Order> Orders { get; set; } = new HashSet<Order>();
     }
 }

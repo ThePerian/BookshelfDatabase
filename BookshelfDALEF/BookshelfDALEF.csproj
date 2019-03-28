@@ -52,6 +52,11 @@
   <ItemGroup>
     <Compile Include="EF\BookshelfEntities.cs" />
     <Compile Include="EF\DataInitializer.cs" />
+    <Compile Include="Migrations\201903281419565_InitialCreate.cs" />
+    <Compile Include="Migrations\201903281419565_InitialCreate.Designer.cs">
+      <DependentUpon>201903281419565_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Partials\InventoryPartial.cs" />
@@ -69,6 +74,10 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201903281419565_InitialCreate.resx">
+      <DependentUpon>201903281419565_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

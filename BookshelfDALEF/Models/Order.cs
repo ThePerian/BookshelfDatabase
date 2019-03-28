@@ -21,5 +21,8 @@ namespace BookshelfDALEF.Models
 
         [ForeignKey("BookId")]
         public virtual Inventory Book { get; set; }
+
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
     }
 }
