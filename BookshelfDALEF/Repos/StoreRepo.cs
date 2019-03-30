@@ -12,15 +12,23 @@ namespace BookshelfDALEF.Repos
             Table = Context.Stores;
         }
 
-        public int Delete(int id)
+        public int Delete(int id, byte[] timeStamp)
         {
-            Context.Entry(new Store() { StoreId = id }).State = EntityState.Deleted;
+            Context.Entry(new Store()
+            {
+                StoreId = id,
+                Timestamp = timeStamp
+            }).State = EntityState.Deleted;
             return SaveChanges();
         }
 
-        public Task<int> DeleteAsync(int id)
+        public Task<int> DeleteAsync(int id, byte[] timeStamp)
         {
-            Context.Entry(new Store() { StoreId = id }).State = EntityState.Deleted;
+            Context.Entry(new Store()
+            {
+                StoreId = id,
+                Timestamp = timeStamp
+            }).State = EntityState.Deleted;
             return SaveChangesAsync();
         }
     }

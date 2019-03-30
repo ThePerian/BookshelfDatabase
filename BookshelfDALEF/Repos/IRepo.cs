@@ -12,8 +12,8 @@ namespace BookshelfDALEF.Repos
         Task<int> AddRangeAsync(IList<T> entities);
         int Save(T entity);
         Task<int> SaveAsync(T entity);
-        int Delete(int id);
-        Task<int> DeleteAsync(int id);
+        int Delete(int id, byte[] timeStamp);
+        Task<int> DeleteAsync(int id, byte[] timeStamp);
         int Delete(T entity);
         Task<int> DeleteAsync(T entity);
         T GetOne(int? id);
