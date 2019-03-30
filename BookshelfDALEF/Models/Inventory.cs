@@ -22,7 +22,5 @@ namespace BookshelfDALEF.Models
 
         [Timestamp]
         public byte[] Timestamp { get; set; }
-
-        public virtual ICollection<Order> Orders { get; set; } = new HashSet<Order>();
     }
 }

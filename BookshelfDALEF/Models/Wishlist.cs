@@ -22,5 +22,10 @@ namespace BookshelfDALEF.Models
         public byte[] Timestamp { get; set; }
 
         public int StoreId { get; set; }
+
+        [ForeignKey("StoreId")]
+        public virtual Store Store { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; } = new HashSet<Order>();
     }
 }
