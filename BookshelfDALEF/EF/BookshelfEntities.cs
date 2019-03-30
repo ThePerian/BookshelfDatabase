@@ -47,10 +47,4 @@ namespace BookshelfDALEF.EF
         public virtual DbSet<Inventory> Inventory { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
     }
-
-    //public class MyEntity
-    //{
-    //    public int Id { get; set; }
-    //    public string Name { get; set; }
-    //}
 }

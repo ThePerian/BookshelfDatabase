@@ -20,7 +20,7 @@ namespace BookshelfDALEF.Models
         public virtual Store Store { get; set; }
 
         [ForeignKey("BookId")]
-        public virtual Inventory Book { get; set; }
+        public virtual Wishlist Book { get; set; }
 
         [Timestamp]
         public byte[] Timestamp { get; set; }
