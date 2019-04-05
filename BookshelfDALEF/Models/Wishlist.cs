@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookshelfDALEF.Models
 {
-    public partial class Wishlist
+    public partial class Wishlist : EntityBase
     {
         [Key]
         public int BookId { get; set; }
@@ -17,9 +17,6 @@ namespace BookshelfDALEF.Models
         [StringLength(50)]
         [Index("IDX_Wishlist_FullName", IsUnique = true, Order = 2)]
         public string BookName { get; set; }
-
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
 
         public int StoreId { get; set; }
 

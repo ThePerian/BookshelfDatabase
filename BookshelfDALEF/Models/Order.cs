@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookshelfDALEF.Models
 {
-    public partial class Order
+    public partial class Order : EntityBase
     {
         [Key, Required, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OrderId { get; set; }
@@ -21,8 +21,5 @@ namespace BookshelfDALEF.Models
 
         [ForeignKey("BookId")]
         public virtual Wishlist Book { get; set; }
-
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
     }
 }

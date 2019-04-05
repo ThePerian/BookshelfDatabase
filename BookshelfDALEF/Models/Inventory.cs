@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace BookshelfDALEF.Models
 {
     [Table("Inventory")]
-    public partial class Inventory
+    public partial class Inventory : EntityBase
     {
         [Key]
         public int BookId { get; set; }
@@ -19,8 +19,5 @@ namespace BookshelfDALEF.Models
 
         [Required]
         public bool ReadStatus { get; set; }
-
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
     }
 }
