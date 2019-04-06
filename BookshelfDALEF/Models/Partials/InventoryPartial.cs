@@ -19,7 +19,7 @@ namespace BookshelfDALEF.Models
                 $"\"{BookName??"Без названия"}\", {ReadStatus}";
         }
 
-        public string this[string columnName]
+        public override string this[string columnName]
         {
             get
             {

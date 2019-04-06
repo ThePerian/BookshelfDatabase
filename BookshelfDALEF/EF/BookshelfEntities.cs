@@ -39,7 +39,9 @@ namespace BookshelfDALEF.EF
         private void OnObjectMaterialized(object sender, 
             System.Data.Entity.Core.Objects.ObjectMaterializedEventArgs eventArgs)
         {
-
+            var model = eventArgs.Entity as EntityBase;
+            if (model != null)
+                model.IsChanged = false;
         }
 
         public virtual DbSet<Wishlist> Wishlist { get; set; }

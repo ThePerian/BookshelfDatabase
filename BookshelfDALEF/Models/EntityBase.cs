@@ -65,7 +65,7 @@ namespace BookshelfDALEF.Models
 
         public string Error { get; }
 
-        public string this[string columnName] => throw new NotImplementedException();
+        public virtual string this[string columnName] => throw new NotImplementedException();
 
         protected void OnErrorsChanged(string propertyName)
         {
